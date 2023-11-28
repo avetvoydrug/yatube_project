@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'about.apps.AboutConfig',
+    'core.apps.CoreConfig',
+    'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -101,11 +104,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#IN/REDIRECT
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'posts:main_page'
+LOGOUT_REDIRECT_URL = 'posts:main_page'
+
+
+#set engine
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+#set emails dir
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
