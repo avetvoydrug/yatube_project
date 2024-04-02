@@ -34,7 +34,7 @@
               {% endfor %}
           {% endif %}
 
-          <form method="post"
+          <form method="post" enctype="multipart/form-data"
             {% if action_url %}
               action="{% url action_url %}"
             {% endif %}
